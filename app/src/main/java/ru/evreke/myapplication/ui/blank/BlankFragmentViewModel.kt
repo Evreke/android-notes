@@ -1,20 +1,25 @@
 package ru.evreke.myapplication.ui.blank
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import ru.evreke.myapplication.DummyData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import ru.evreke.myapplication.Api
+import ru.evreke.myapplication.Group
+import ru.evreke.myapplication.RetrofitService
 
 class BlankFragmentViewModel : ViewModel() {
-    private val data: MutableLiveData<List<DummyData>> by lazy {
-        MutableLiveData<List<DummyData>>(listOf(
-            DummyData("1"),
-            DummyData("2")
-        ))
+    private val api by lazy { RetrofitService.apiFrom<Api>("https://notes.evreke.ru/api/v1/") }
+
+    val data: MutableLiveData<List<Group>> by lazy {
+        MutableLiveData<List<Group>>()
     }
 
-    fun getData(): LiveData<List<DummyData>> {
-        return data
+    fun getData() {
+        viewModelScope.launch(Dispatchers.IO) {
+            data.postValue(api.fetchAllGroups())
+        }
     }
 
 }

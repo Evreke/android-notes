@@ -23,9 +23,9 @@ class BlankFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recyclerView.adapter = adapter
-        model.getData().observe(viewLifecycleOwner, Observer {
+        model.data.observe(viewLifecycleOwner, Observer {
             adapter.fillData(it)
         })
+        model.getData()
     }
-
 }
