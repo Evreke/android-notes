@@ -4,10 +4,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-
         <variable
-            name="group"
-            type="ru.evreke.myapplication.Group" />
+            name="note"
+            type="ru.evreke.myapplication.Note" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,7 +18,7 @@
             android:id="@+id/groupTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{group.title}"
+            android:text="@{note.title}"
             android:textColor="@android:color/primary_text_light"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -29,22 +28,32 @@
             android:id="@+id/createdAt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{group.createdAt}"
+            android:text="@{note.createdAt}"
             android:textColor="@android:color/secondary_text_light"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/groupTitle"
             tools:text="created_at" />
 
         <TextView
+            android:id="@+id/body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{Integer.toString(group.notes.size())}"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="15" />
+            android:text="@{note.body}"
+            android:textColor="@android:color/secondary_text_light"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/groupTitle"
+            tools:text="created_at" />
+
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@{Integer.toString(group.notes.size())}"-->
+<!--            android:textSize="24sp"-->
+<!--            android:textStyle="bold"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            tools:text="15" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
