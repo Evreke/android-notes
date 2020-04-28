@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/blankFragment"
-        android:name="ru.evreke.myapplication.ui.blank.BlankFragment"
+        android:name="ru.evreke.myapplication.ui.note.NoteFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
