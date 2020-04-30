@@ -3,15 +3,15 @@ package ru.evreke.myapplication.ui.note
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import ru.evreke.myapplication.Note
+import ru.evreke.myapplication.data.model.Note
 import ru.evreke.myapplication.databinding.NoteItemBinding
 
 class NoteRecyclerAdapter(
-    private val onClick : (Note) -> Unit
+    private val onClick: (Note) -> Unit
 ) : RecyclerView.Adapter<NoteRecyclerAdapter.ViewHolder>() {
     private val data = mutableListOf<Note>()
 
-    fun fillData(newData:List<Note>){
+    fun fillData(newData: List<Note>) {
         data.clear()
         data.addAll(newData)
         notifyDataSetChanged()

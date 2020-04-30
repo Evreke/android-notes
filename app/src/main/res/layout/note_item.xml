@@ -6,7 +6,7 @@
     <data>
         <variable
             name="note"
-            type="ru.evreke.myapplication.Note" />
+            type="ru.evreke.myapplication.data.model.Note" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
